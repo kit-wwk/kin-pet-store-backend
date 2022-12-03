@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0.1
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: ROOT_PASSWORD
+      MYSQL_DATABASE: kin_pet_store_db
+      MYSQL_USER: KIN_PET_STORE_USER
+      MYSQL_PASSWORD: KIN_PET_STORE_PASSWORD
+    ports:
+      - "6033:3306"
+    volumes:
+      - ./mysql:/data
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
