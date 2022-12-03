@@ -1,2 +1,2 @@
-# kin-pen-store-backend
+# Kin Pet store backend
 REST API Backend
