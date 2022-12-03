@@ -2,12 +2,15 @@ package com.kinpetstore.restbackend.base.controller;
 
 import com.kinpetstore.restbackend.base.domain.BaseResponse;
 import com.kinpetstore.restbackend.base.entity.BaseEntity;
+import com.kinpetstore.restbackend.base.exception.RecordNotFoundException;
 import com.kinpetstore.restbackend.base.service.BaseService;
+import com.kinpetstore.restbackend.constant.MessageCode;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class BaseController<T extends BaseEntity, Svc extends BaseService<T>> {
 
@@ -18,10 +21,13 @@ public abstract class BaseController<T extends BaseEntity, Svc extends BaseServi
         this.baseService = baseService;
     }
 
-    protected BaseResponse<T> getDetail(Long id) {
+    protected BaseResponse<T> getDetail(Long id) throws Exception {
         T item = null;
         if (id != null) {
             item = baseService.findById(id).orElse(null);
+        }
+        if (Objects.isNull(item)) {
+            throw new RecordNotFoundException(MessageCode.Exception.RecordNotFound);
         }
         return BaseResponse.success(item);
     }
