@@ -1,4 +1,4 @@
-package com.kinpetstore.restbackend.constants;
+package com.kinpetstore.restbackend.entity.enums;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

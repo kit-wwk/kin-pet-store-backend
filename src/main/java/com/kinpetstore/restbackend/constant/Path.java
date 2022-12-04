@@ -6,4 +6,6 @@ public final class Path {
     public static final String VERSION_PREFIX_V1 = "/v1";
 
     public static final String MODULE_DISTRICT = "/district";
+
+    public static final String MODULE_STORE = "/store";
 }

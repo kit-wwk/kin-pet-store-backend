@@ -7,6 +7,8 @@ public interface BaseService<T> {
 
     /* Search Operation */
 
+    List<T> findAll();
+
     Optional<T> findById(Long id);
 
     List<T> findAllById(List<Long> idList);

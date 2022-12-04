@@ -44,12 +44,12 @@ public class District extends BaseEntity {
         );
     }
 
-    public void addLocalizedDistrict(LocalizedDistrict incomingLocalizedDistrict) {
-        if (!Objects.isNull(incomingLocalizedDistrict)) {
+    public void addLocalizedDistrict(LocalizedDistrict localizedDistrictInput) {
+        if (!Objects.isNull(localizedDistrictInput)) {
             if (Objects.isNull(localizedDistricts)) {
                 localizedDistricts = new ArrayList<LocalizedDistrict>();
             }
-            localizedDistricts.add(incomingLocalizedDistrict);
+            localizedDistricts.add(localizedDistrictInput);
         }
     }
 

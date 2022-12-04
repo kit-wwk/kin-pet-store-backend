@@ -11,7 +11,6 @@ import com.kinpetstore.restbackend.service.DistrictService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,30 +59,13 @@ public class DistrictController extends BaseController<District, DistrictService
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody District district) {
-        return updateDistrict(id, district);
+    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody District district) throws Exception {
+        return districtService.updateDistrict(id, district);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public BaseResponse<String> delete(@PathVariable("id") Long id) {
         return super.deleteAll(List.of(id));
-    }
-
-    protected BaseResponse<String> updateDistrict(Long id, District newItem) {
-        try {
-            if (id != null) {
-                District oldItem = baseService.findById(id).orElse(null);
-                oldItem.setDistrictCode(newItem.getDistrictCode());
-                oldItem.setLocalizedDistrict(newItem.getLocalizedDistricts());
-                baseService.save(oldItem);
-            } else {
-                baseService.save(newItem);
-            }
-        } catch (DataIntegrityViolationException e) {
-            return BaseResponse.error("SQL Error");
-        }
-
-        return BaseResponse.success();
     }
 }

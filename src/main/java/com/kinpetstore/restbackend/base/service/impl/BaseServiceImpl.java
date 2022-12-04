@@ -24,6 +24,11 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
         return baseRepository.findAllById(idList);
     }
 
+    @Override
+    public List<T> findAll() {
+        return baseRepository.findAll();
+    }
+
     public List<Long> toIdList(List<T> objList) {
         return objList.stream().map(item -> item.getId()).collect(Collectors.toList());
     }
