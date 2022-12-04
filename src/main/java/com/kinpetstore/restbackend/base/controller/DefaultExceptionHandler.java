@@ -6,6 +6,7 @@ import com.kinpetstore.restbackend.base.exception.BaseException;
 import com.kinpetstore.restbackend.constant.MessageCode;
 import com.kinpetstore.restbackend.service.MessageService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import static com.kinpetstore.restbackend.constant.ErrorCode.PayloadConstraintViolation;
 
 @Log4j2
 @ControllerAdvice
@@ -46,4 +49,18 @@ public class DefaultExceptionHandler extends ResponseEntityExceptionHandler impl
         }
         return BaseErrorResponse.build(ex.getMessageCode(), ex.getErrorCode());
     }
+
+    @ExceptionHandler({ConstraintViolationException.class})
+    protected BaseErrorResponse handleError(final HttpServletRequest req, final ConstraintViolationException ex) {
+        logger.error("Error:", ex);
+        String messageTemplate = ex.getConstraintViolations().stream().findFirst().get().getMessageTemplate().replaceAll("\\{|\\}", "").toUpperCase();
+        try {
+            String message = messageService.getMessage(messageTemplate, null, req.getLocale());
+            return BaseErrorResponse.build(message, PayloadConstraintViolation);
+        } catch (NoSuchMessageException e) {
+
+        }
+        return BaseErrorResponse.build(messageTemplate, PayloadConstraintViolation);
+    }
+
 }

@@ -27,8 +27,8 @@ public class MessageService extends AbstractMessageSource {
         }
 
         Message message = messageRepository.findByCodeAndLocale(code, locale);
-        persistentMessageMap.put(key, message.getContent());
         if (!Objects.isNull(message)) {
+            persistentMessageMap.put(key, message.getContent());
             return new MessageFormat(message.getContent(), locale);
         }
         return null;

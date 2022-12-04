@@ -3,7 +3,9 @@ spring:
     url: jdbc:mysql://localhost:6033/kin_pet_store_db?allowPublicRetrieval=true&useSSL=false
     username: KIN_PET_STORE_USER
     password: KIN_PET_STORE_PASSWORD
-    jpa:
-      hibernate.ddl-auto: update
-      generate-ddl: true
-      show-sql: true
+  jpa:
+    properties:
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    generate-ddl: true
+    show-sql: true

@@ -9,7 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -29,20 +29,21 @@ public abstract class BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     @Column(name = "create_time")
-    private LocalDateTime createTime;
+    private Date createTime;
 
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     @Column(name = "last_update_time")
-    private LocalDateTime lastUpdateTime;
+    private Date lastUpdateTime;
 
     @PrePersist
     void prePersist() {
-        this.setCreateTime(LocalDateTime.now());
+        this.setCreateTime(new Date());
+        this.setLastUpdateTime(new Date());
     }
 
     @PreUpdate
     void preUpdate() {
-        this.setLastUpdateTime(LocalDateTime.now());
+        this.setLastUpdateTime(new Date());
     }
 }
