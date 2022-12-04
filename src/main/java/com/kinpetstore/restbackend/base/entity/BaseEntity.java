@@ -15,7 +15,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 @NoRepositoryBean
 @MappedSuperclass
-@SuperBuilder
+@SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @Getter
 @Setter

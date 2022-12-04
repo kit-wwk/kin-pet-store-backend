@@ -15,6 +15,7 @@ import java.util.List;
 @Builder
 public class StoreRequest {
     private Long id;
+    
     @NotNull
     private List<LocalizedStore> localizedStore;
 
