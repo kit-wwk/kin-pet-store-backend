@@ -1,2 +1,4 @@
-package com.kinpetstore.restbackend.controller;public class UserController {
+package com.kinpetstore.restbackend.controller;
+
+public class UserController {
 }

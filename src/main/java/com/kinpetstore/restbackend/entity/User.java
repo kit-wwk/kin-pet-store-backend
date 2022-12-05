@@ -1,4 +1,4 @@
-package com.kinpetstore.restbackend.entity.model;
+package com.kinpetstore.restbackend.entity;
 
 public class User {
 }

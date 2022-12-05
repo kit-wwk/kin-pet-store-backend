@@ -9,3 +9,25 @@ spring:
       dialect: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
     show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: TAv8e7KkbquKYS9jL0rOLp9ZPOR7Y6t9
+            client-secret: Rezs-STJ0419Vz_OoPIiSl9HFX9xOCwOBGkzg9Lwnbf_1BqjHbBqHkhkBdi-jEfJ3
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            # trailing slash is important!
+            issuer-uri: https://dev-ig-automation.jp.auth0.com/
+            jwk-set-uri: https://dev-ig-automation.jp.auth0.com/.well-known/jwks.json
+
+  main:
+    allow-bean-definition-overriding: true

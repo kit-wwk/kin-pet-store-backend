@@ -12,14 +12,15 @@ import com.kinpetstore.restbackend.service.StoreService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-@Controller
+@RestController
 @RequestMapping(Path.API_PREFIX + Path.VERSION_PREFIX_V1 + Path.MODULE_STORE)
 public class StoreController extends BaseController<Store, StoreService> {
 
@@ -41,7 +42,10 @@ public class StoreController extends BaseController<Store, StoreService> {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public BaseResponse<StoreResponse> getDistrict(@PathVariable("id") Long id, Locale locale) throws Exception {
+    public BaseResponse<StoreResponse> getDistrict(@PathVariable("id") Long id, Locale locale,
+                                                   @AuthenticationPrincipal Jwt principal) throws Exception {
+        logger.info("principal: {}", principal);
+        logger.info(principal.getClaims());
         var store = storeService.findById(id);
         if (!store.isPresent()) {
             throw new RecordNotFoundException(MessageCode.Exception.RecordNotFound);

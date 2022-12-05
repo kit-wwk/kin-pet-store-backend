@@ -41,7 +41,10 @@ public class SecurityConfig {
                 .authenticated()
                 .and()
                 .logout()
-                .logoutUrl("/logout");
+                .logoutUrl("/logout")
+                .and()
+                .oauth2Login()
+        ;
         //TODO: impl oAuth2 later
 //                .and()
 //                .oauth2ResourceServer()

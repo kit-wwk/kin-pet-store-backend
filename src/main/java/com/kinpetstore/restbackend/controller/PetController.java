@@ -12,14 +12,13 @@ import com.kinpetstore.restbackend.service.PetService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-@Controller
+@RestController
 @RequestMapping(Path.API_PREFIX + Path.VERSION_PREFIX_V1 + Path.MODULE_PET)
 public class PetController extends BaseController<Pet, PetService> {
 
