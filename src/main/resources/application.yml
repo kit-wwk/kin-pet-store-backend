@@ -23,11 +23,14 @@ spring:
               - openid
               - profile
               - email
+            redirectUri: http://127.0.0.1:8080/login/oauth2/authorize
         provider:
           auth0:
             # trailing slash is important!
             issuer-uri: https://dev-ig-automation.jp.auth0.com/
             jwk-set-uri: https://dev-ig-automation.jp.auth0.com/.well-known/jwks.json
-
   main:
     allow-bean-definition-overriding: true
+
+auth0:
+  audience: https://kin-pet-store.com/api/v1

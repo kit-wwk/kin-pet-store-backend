@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
+import static com.kinpetstore.restbackend.utils.Functions.resolveLocale;
+
 @RestController
 @RequestMapping(Path.API_PREFIX + Path.VERSION_PREFIX_V1 + Path.MODULE_PET)
 public class PetController extends BaseController<Pet, PetService> {
@@ -41,6 +43,7 @@ public class PetController extends BaseController<Pet, PetService> {
     @ResponseBody
     public BaseResponse<PetResponse> getDistrict(@PathVariable("id") Long id, Locale locale) throws Exception {
         var pet = petService.findById(id);
+        locale = resolveLocale(locale);
         if (!pet.isPresent()) {
             throw new RecordNotFoundException(MessageCode.Exception.RecordNotFound);
         }

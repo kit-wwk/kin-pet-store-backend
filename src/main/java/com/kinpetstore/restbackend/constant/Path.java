@@ -8,4 +8,6 @@ public final class Path {
     public static final String MODULE_DISTRICT = "/district";
     public static final String MODULE_STORE = "/store";
     public static final String MODULE_PET = "/pet";
+    public static final String MODULE_USER = "/user";
+    public static final String MODULE_AUTHENTICATION = "/auth";
 }

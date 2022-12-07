@@ -4,18 +4,18 @@ import com.kinpetstore.restbackend.entity.LocalizedStore;
 import com.kinpetstore.restbackend.entity.enums.StoreStatus;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Setter
 @Getter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class StoreRequest {
     private Long id;
-    
+
     @NotNull
     private List<LocalizedStore> localizedStore;
 

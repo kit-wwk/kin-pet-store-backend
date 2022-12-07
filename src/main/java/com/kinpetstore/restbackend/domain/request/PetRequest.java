@@ -3,13 +3,13 @@ package com.kinpetstore.restbackend.domain.request;
 import com.kinpetstore.restbackend.entity.enums.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PetRequest {
     @NotNull
     private Long storeId;
