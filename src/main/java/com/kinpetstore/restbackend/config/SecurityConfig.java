@@ -13,42 +13,6 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//
-//        http.cors().and()
-//                .csrf().disable()
-//
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//
-//                .headers()
-//                .contentTypeOptions().and()
-//                .xssProtection().and()
-//                .cacheControl().and()
-//                .httpStrictTransportSecurity().and()
-//                .frameOptions().and()
-//                .and()
-//
-//                .authorizeHttpRequests()
-//                .requestMatchers("/**")
-//                .permitAll()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .logout()
-//                .logoutUrl("/logout")
-//                .and()
-//                .oauth2Login()
-//        ;
-//        //TODO: impl oAuth2 later
-////                .and()
-////                .oauth2ResourceServer()
-////                .jwt();
-//        return http.build();
-//    }
-
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

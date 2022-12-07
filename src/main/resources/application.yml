@@ -18,7 +18,7 @@ spring:
         registration:
           auth0:
             client-id: TAv8e7KkbquKYS9jL0rOLp9ZPOR7Y6t9
-            client-secret: Rezs-STJ0419Vz_OoPIiSl9HFX9xOCwOBGkzg9Lwnbf_1BqjHbBqHkhkBdi-jEfJ3
+            client-secret: Rezs-STJ049Vz_OoPIiSl9HFX9xOCwOBGkzg9Lwnbf_1BqjHbBqHkhkBdi-jEfJ3
             scope:
               - openid
               - profile
@@ -29,8 +29,17 @@ spring:
             # trailing slash is important!
             issuer-uri: https://dev-ig-automation.jp.auth0.com/
             jwk-set-uri: https://dev-ig-automation.jp.auth0.com/.well-known/jwks.json
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-ig-automation.jp.auth0.com/
   main:
     allow-bean-definition-overriding: true
 
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
 auth0:
-  audience: https://kin-pet-store.com/api/v1
+  audience: https://127.0.0.1:8080/api/v1/

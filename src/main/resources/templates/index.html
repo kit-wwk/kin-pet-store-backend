@@ -1,9 +1,8 @@
 <!-- src/main/resources/templates/index.html -->
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+>
 <body>
-<div sec:authorize="!isAuthenticated()">
-    <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
-</div>
+<a href="https://dev-ig-automation.jp.auth0.com/authorize?response_type=code&client_id=TAv8e7KkbquKYS9jL0rOLp9ZPOR7Y6t9&scope=openid%20profile%20email%20read:users&state=ekh4UWCBuBuou1DzFsHoXmCTZhZlk4w-KYBhMiesFuA%3D&redirect_uri=http://127.0.0.1:8080/login/oauth2/authorize&nonce=cCdrNY3vNLB9aqAK9aoBgT5MKpgqUXd4ZnBQhz9eEfo&audience=https://127.0.0.1:8080/api/v1/">OAuth2
+    via auth0</a>
 </body>
 </html>

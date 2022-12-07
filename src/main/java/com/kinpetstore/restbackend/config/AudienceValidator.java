@@ -1,11 +1,14 @@
 package com.kinpetstore.restbackend.config;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
 import org.springframework.security.oauth2.core.OAuth2TokenValidatorResult;
 import org.springframework.security.oauth2.jwt.Jwt;
 
 class AudienceValidator implements OAuth2TokenValidator<Jwt> {
+    private static final Logger logger = LogManager.getLogger(AudienceValidator.class);
     private final String audience;
 
     AudienceValidator(String audience) {
