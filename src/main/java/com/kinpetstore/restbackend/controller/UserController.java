@@ -5,6 +5,7 @@ import com.kinpetstore.restbackend.base.domain.BaseResponse;
 import com.kinpetstore.restbackend.config.AuthConfig;
 import com.kinpetstore.restbackend.constant.Path;
 import com.kinpetstore.restbackend.domain.request.UserRequest;
+import com.kinpetstore.restbackend.domain.request.UserSearchRequest;
 import com.kinpetstore.restbackend.entity.User;
 import com.kinpetstore.restbackend.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -79,5 +80,11 @@ public class UserController extends BaseController<User, UserService> {
     @ResponseBody
     public BaseResponse<String> delete(@PathVariable("id") Long id) {
         return super.deleteAll(List.of(id));
+    }
+
+    @RequestMapping(value = Path.API_PREFIX + Path.VERSION_PREFIX_V1 + Path.MODULE_USER + "/search", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseResponse<List<User>> search(@RequestBody UserSearchRequest userSearchRequest) {
+        return BaseResponse.success(userService.search(userSearchRequest));
     }
 }

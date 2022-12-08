@@ -11,6 +11,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+      format_sql: true
 
   security:
     oauth2:
@@ -40,6 +41,12 @@ logging:
     org:
       springframework:
         security: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
 
 auth0:
   audience: https://127.0.0.1:8080/api/v1/

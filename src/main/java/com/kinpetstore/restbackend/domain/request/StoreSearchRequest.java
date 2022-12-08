@@ -1,18 +1,14 @@
-package com.kinpetstore.restbackend.domain.response;
+package com.kinpetstore.restbackend.domain.request;
 
 import com.kinpetstore.restbackend.entity.enums.StoreStatus;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
 @Builder
-public class StoreResponse {
-    private Long id;
-    private String name;
-    private String description;
-    private String address;
+@AllArgsConstructor
+@NoArgsConstructor
+public class StoreSearchRequest {
     private String phoneNumber;
     private String facebookUrl;
     private String instagramUrl;
@@ -20,6 +16,6 @@ public class StoreResponse {
     private Double latitude;
     private Double longitude;
     private Double distanceInKm;
-    private DistrictResponse district;
+    private Long districtId;
     private StoreStatus status;
 }

@@ -49,13 +49,19 @@ public class AuthConfig {
                             try {
                                 requests.requestMatchers(
                                                 new AntPathRequestMatcher("/", HttpMethod.GET.toString()),
+                                                new AntPathRequestMatcher("/swagger-ui.html", HttpMethod.GET.toString()),
+                                                new AntPathRequestMatcher("/swagger-ui/**", HttpMethod.GET.toString()),
+                                                new AntPathRequestMatcher("/v3/api-docs/**", HttpMethod.GET.toString()),
                                                 new AntPathRequestMatcher("/login/oauth2/authorize", HttpMethod.GET.toString())
                                         )
                                         .permitAll()
                                         .requestMatchers(
                                                 new AntPathRequestMatcher("/api/v1/pet/**", HttpMethod.GET.toString()),
                                                 new AntPathRequestMatcher("/api/v1/store/**", HttpMethod.GET.toString()),
-                                                new AntPathRequestMatcher("/api/v1/district/**", HttpMethod.GET.toString())
+                                                new AntPathRequestMatcher("/api/v1/district/**", HttpMethod.GET.toString()),
+                                                new AntPathRequestMatcher("/api/v1/pet/search", HttpMethod.POST.toString()),
+                                                new AntPathRequestMatcher("/api/v1/store/search", HttpMethod.POST.toString()),
+                                                new AntPathRequestMatcher("/api/v1/district/search", HttpMethod.POST.toString())
                                         )
                                         .permitAll()
                                         .anyRequest()

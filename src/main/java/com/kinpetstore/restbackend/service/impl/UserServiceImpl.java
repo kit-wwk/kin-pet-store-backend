@@ -6,6 +6,7 @@ import com.kinpetstore.restbackend.base.service.impl.BaseServiceImpl;
 import com.kinpetstore.restbackend.config.AuthConfig;
 import com.kinpetstore.restbackend.constant.MessageCode;
 import com.kinpetstore.restbackend.domain.request.UserRequest;
+import com.kinpetstore.restbackend.domain.request.UserSearchRequest;
 import com.kinpetstore.restbackend.entity.User;
 import com.kinpetstore.restbackend.repository.UserRepository;
 import com.kinpetstore.restbackend.service.UserService;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -107,5 +109,13 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
             user.setLastUpdateTime(existingUser.getLastUpdateTime());
         }
         userRepository.save(user);
+    }
+
+    @Override
+    public List<User> search(UserSearchRequest userSearchRequest) {
+        return userRepository.search(userSearchRequest.getSub(), userSearchRequest.getGivenName(),
+                userSearchRequest.getEmail(), userSearchRequest.getName(), userSearchRequest.getNickname(),
+                userSearchRequest.getPicture()
+        );
     }
 }

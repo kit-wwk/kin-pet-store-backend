@@ -6,6 +6,7 @@ import com.kinpetstore.restbackend.base.exception.RecordNotFoundException;
 import com.kinpetstore.restbackend.constant.MessageCode;
 import com.kinpetstore.restbackend.constant.Path;
 import com.kinpetstore.restbackend.domain.request.StoreRequest;
+import com.kinpetstore.restbackend.domain.request.StoreSearchRequest;
 import com.kinpetstore.restbackend.domain.response.StoreResponse;
 import com.kinpetstore.restbackend.entity.Store;
 import com.kinpetstore.restbackend.service.StoreService;
@@ -69,5 +70,11 @@ public class StoreController extends BaseController<Store, StoreService> {
     @ResponseBody
     public BaseResponse<String> delete(@PathVariable("id") Long id) {
         return super.deleteAll(List.of(id));
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseResponse<List<StoreResponse>> search(@RequestBody StoreSearchRequest storeSearchRequest, Locale locale) throws Exception {
+        return BaseResponse.success(storeService.searchStore(storeSearchRequest, locale));
     }
 }

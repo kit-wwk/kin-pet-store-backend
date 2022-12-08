@@ -2,7 +2,10 @@ package com.kinpetstore.restbackend.service;
 
 import com.kinpetstore.restbackend.base.service.BaseService;
 import com.kinpetstore.restbackend.domain.request.UserRequest;
+import com.kinpetstore.restbackend.domain.request.UserSearchRequest;
 import com.kinpetstore.restbackend.entity.User;
+
+import java.util.List;
 
 public interface UserService extends BaseService<User> {
 
@@ -16,5 +19,5 @@ public interface UserService extends BaseService<User> {
 
     void updateUser(Long id, User user) throws Exception;
 
-
+    List<User> search(UserSearchRequest userSearchRequest);
 }
