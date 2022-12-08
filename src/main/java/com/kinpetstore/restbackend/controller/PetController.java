@@ -35,8 +35,10 @@ public class PetController extends BaseController<Pet, PetService> {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
-    public BaseResponse<String> create(@RequestBody PetRequest petRequest) throws Exception {
+    public BaseResponse<String> create(@RequestBody PetRequest petRequest, @RequestHeader("Authorization") String bearerToken) throws Exception {
         var pet = petService.toPojo(petRequest);
+        logger.info("pet: {}", pet);
+        logger.info("pet: {}", pet.getAgeGroup());
         return super.saveOrUpdate(null, pet);
     }
 
@@ -64,13 +66,13 @@ public class PetController extends BaseController<Pet, PetService> {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody PetRequest petRequest) throws Exception {
+    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody PetRequest petRequest, @RequestHeader("Authorization") String bearerToken) throws Exception {
         return petService.updatePet(id, petRequest);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public BaseResponse<String> delete(@PathVariable("id") Long id) {
+    public BaseResponse<String> delete(@PathVariable("id") Long id, @RequestHeader("Authorization") String bearerToken) {
         return super.deleteAll(List.of(id));
     }
 

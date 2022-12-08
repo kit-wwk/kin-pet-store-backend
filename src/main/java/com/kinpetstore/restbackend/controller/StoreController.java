@@ -34,7 +34,7 @@ public class StoreController extends BaseController<Store, StoreService> {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
-    public BaseResponse<String> create(@RequestBody StoreRequest storeRequest) throws Exception {
+    public BaseResponse<String> create(@RequestBody StoreRequest storeRequest, @RequestHeader("Authorization") String bearerToken) throws Exception {
         var store = storeService.toPojo(storeRequest);
         return super.saveOrUpdate(null, store);
     }
@@ -62,13 +62,13 @@ public class StoreController extends BaseController<Store, StoreService> {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody StoreRequest storeRequest) throws Exception {
+    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody StoreRequest storeRequest, @RequestHeader("Authorization") String bearerToken) throws Exception {
         return storeService.updateStore(id, storeRequest);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public BaseResponse<String> delete(@PathVariable("id") Long id) {
+    public BaseResponse<String> delete(@PathVariable("id") Long id, @RequestHeader("Authorization") String bearerToken) {
         return super.deleteAll(List.of(id));
     }
 

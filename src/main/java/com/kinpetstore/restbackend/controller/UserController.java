@@ -57,28 +57,28 @@ public class UserController extends BaseController<User, UserService> {
 
     @RequestMapping(value = Path.API_PREFIX + Path.VERSION_PREFIX_V1 + Path.MODULE_USER + "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public BaseResponse<User> findUser(@PathVariable("id") Long id) throws Exception {
+    public BaseResponse<User> findUser(@PathVariable("id") Long id, @RequestHeader("Authorization") String bearerToken) throws Exception {
         User user = userService.findById(id).orElse(null);
         return BaseResponse.success(user);
     }
 
     @RequestMapping(value = Path.API_PREFIX + Path.VERSION_PREFIX_V1 + Path.MODULE_USER + "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody UserRequest userRequest) throws Exception {
+    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody UserRequest userRequest, @RequestHeader("Authorization") String bearerToken) throws Exception {
         userService.updateUser(id, userRequest);
         return BaseResponse.success();
     }
 
     @RequestMapping(value = Path.API_PREFIX + Path.VERSION_PREFIX_V1 + Path.MODULE_USER + "/list", method = RequestMethod.GET)
     @ResponseBody
-    public BaseResponse<List<User>> getList() {
+    public BaseResponse<List<User>> getList(@RequestHeader("Authorization") String bearerToken) {
         var users = userService.findAll();
         return BaseResponse.success(users);
     }
 
     @RequestMapping(value = Path.API_PREFIX + Path.VERSION_PREFIX_V1 + Path.MODULE_USER + "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public BaseResponse<String> delete(@PathVariable("id") Long id) {
+    public BaseResponse<String> delete(@PathVariable("id") Long id, @RequestHeader("Authorization") String bearerToken) {
         return super.deleteAll(List.of(id));
     }
 

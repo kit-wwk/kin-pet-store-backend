@@ -58,13 +58,13 @@ public class DistrictController extends BaseController<District, DistrictService
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody District district) throws Exception {
+    public BaseResponse<String> update(@PathVariable("id") Long id, @RequestBody District district, @RequestHeader("Authorization") String bearerToken) throws Exception {
         return districtService.updateDistrict(id, district);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public BaseResponse<String> delete(@PathVariable("id") Long id) {
+    public BaseResponse<String> delete(@PathVariable("id") Long id, @RequestHeader("Authorization") String bearerToken) {
         return super.deleteAll(List.of(id));
     }
 }
