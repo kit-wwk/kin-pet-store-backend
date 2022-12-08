@@ -1,0 +1,813 @@
+{
+	"info": {
+		"_postman_id": "c8f76bd6-12cc-4f82-ada1-b5e7143ece73",
+		"name": "Kin Pet Store [Paste your access token here]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22353440"
+	},
+	"item": [
+		{
+			"name": "District",
+			"item": [
+				{
+					"name": "Create District [Authorize needed]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"districtCode\": \"WTS\",\r\n    \"localizedDistricts\": [\r\n        {\r\n            \"name\": \"Wong Tai Sin District\",\r\n            \"locale\": \"en\"\r\n        },\r\n        {\r\n            \"name\": \"黃大仙區\",\r\n            \"locale\": \"zh-TW\"\r\n        },\r\n        {\r\n            \"name\": \"黄大仙区\",\r\n            \"locale\": \"zh-CN\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/district"
+					},
+					"response": []
+				},
+				{
+					"name": "Get District",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/district/32"
+					},
+					"response": []
+				},
+				{
+					"name": "Update District [Authorize needed]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"districtCode\": \"WTS\",\r\n    \"localizedDistricts\": [\r\n        {\r\n            \"id\": 68,\r\n            \"name\": \"Wong Tai Sin District\",\r\n            \"locale\": \"en\"\r\n        },\r\n        {\r\n            \"id\": 69,\r\n            \"name\": \"黃大仙區\",\r\n            \"locale\": \"zh-TW\"\r\n        },\r\n        {\r\n            \"id\": 70,\r\n            \"name\": \"黄大仙区\",\r\n            \"locale\": \"zh-CN\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/district/32"
+					},
+					"response": []
+				},
+				{
+					"name": "List District",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/district/list"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete District [Authorize needed]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/district/30"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Create Store [Authorize needed]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"+852 23277686\",\r\n    \"facebookUrl\": \"https://www.facebook.com/kinfoodhalls/\",\r\n    \"instagramUrl\": \"https://www.instagram.com/kinfoodhalls\",\r\n    \"webUrl\": \"https://kinfoodhalls.com/\",\r\n    \"latitude\": 22.3650352,\r\n    \"longitude\": 114.1324154,\r\n    \"districtId\": 19,\r\n    \"status\": 1,\r\n    \"localizedStore\": [\r\n        {\r\n            \"name\": \"Kin Pet Store (Tsuen Wan District)\",\r\n            \"description\": \"Buy pet foods and pet supplies online from the HK's friendliest online pet store. Excellent customer service and free delivery over $199.9.\",\r\n            \"address\": \"Vanta Industrial Centre, Unit 1107, 11/F, 21-33 Tai Lin Pai Rd, Kwai Chung\",\r\n            \"locale\": \"en\"\r\n        },\r\n        {\r\n            \"name\": \"Kin Pet Store (荃灣區)\",\r\n            \"description\": \"日本直送，價錢最抵，齊全可靠，良心服務，產品價錢已扣除運輸成本 100%正版正貨保證. 優質寵物用品速遞. 百分百正貨信心保證. 過 10000 款產品任您選購. 特設格價專員. 類型: 貓砂, 貓糧, 貓罐頭, 貓小食, 貓咪玩具, 貓咪飾物, 貓咪健康美容.\",\r\n            \"address\": \"葵涌大連排道21-33號11樓萬達工業中心1107室\",\r\n            \"locale\": \"zh-TW\"\r\n        },\r\n        {\r\n            \"name\": \"Kin Pet Store (荃湾区)\",\r\n            \"description\": \"日本直送，价钱最抵，齐全可靠，良心服务，产品价钱已扣除运输成本 100%正版正货保证. 优质宠物用品速递. 百分百正货信心保证. 过 10000 款产品任您选购. 特设格价专员. 类型: 猫砂, 猫粮, 猫罐头, 猫小食, 猫咪玩具, 猫咪饰物, 猫咪健康美容.\",\r\n            \"address\": \"葵涌大连排道21-33号11楼万达工业中心1107室\",\r\n            \"locale\": \"zh-CN\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/store"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Store",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/store/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Store [Authorize needed]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"+852 23277686\",\r\n    \"facebookUrl\": \"https://www.facebook.com/kinfoodhalls/\",\r\n    \"instagramUrl\": \"https://www.instagram.com/kinfoodhalls\",\r\n    \"webUrl\": \"https://kinfoodhalls.com/\",\r\n    \"latitude\": 22.3439917,\r\n    \"longitude\": 114.1962555,\r\n    \"districtId\": 9,\r\n    \"status\": 1,\r\n    \"localizedStore\": [\r\n        {\r\n            \"id\": 7,\r\n            \"name\": \"Kin Pet Store (Central and Western District)\",\r\n            \"description\": \"Buy pet foods and pet supplies online from the HK's friendliest online pet store. Excellent customer service and free delivery over $199.9.\",\r\n            \"address\": \"Queen's Rd W, Sai Wan\",\r\n            \"locale\": \"en\"\r\n        },\r\n        {\r\n            \"id\": 8,\r\n            \"name\": \"Kin Pet Store (中西區)\",\r\n            \"description\": \"日本直送，價錢最抵，齊全可靠，良心服務，產品價錢已扣除運輸成本 100%正版正貨保證. 優質寵物用品速遞. 百分百正貨信心保證. 過 10000 款產品任您選購. 特設格價專員. 類型: 貓砂, 貓糧, 貓罐頭, 貓小食, 貓咪玩具, 貓咪飾物, 貓咪健康美容.\",\r\n            \"address\": \"西環皇后大道西\",\r\n            \"locale\": \"zh-TW\"\r\n        },\r\n        {\r\n            \"id\": 9,\r\n            \"name\": \"Kin Pet Store (中西区)\",\r\n            \"description\": \"日本直送，价钱最抵，齐全可靠，良心服务，产品价钱已扣除运输成本 100%正版正货保证. 优质宠物用品速递. 百分百正货信心保证. 过 10000 款产品任您选购. 特设格价专员. 类型: 猫砂, 猫粮, 猫罐头, 猫小食, 猫咪玩具, 猫咪饰物, 猫咪健康美容.\",\r\n            \"address\": \"西环皇后大道西\",\r\n            \"locale\": \"zh-CN\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/store/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Store - nomal search",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"+852 23277686\",\r\n    \"facebookUrl\": \"https://www.facebook.com/kinfoodhalls/\",\r\n    \"instagramUrl\": \"https://www.instagram.com/kinfoodhalls\",\r\n    \"webUrl\": \"https://kinfoodhalls.com/\",\r\n    \"latitude\": 22.3439917,\r\n    \"longitude\": 114.1962555,\r\n    \"districtId\": 9,\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/store/search"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Store - by latitude/longitude (near Sai Wan)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitude\": 22.3439917,\r\n    \"longitude\": 114.1962555,\r\n    \"distanceInKm\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/store/search"
+					},
+					"response": []
+				},
+				{
+					"name": "List Store",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/store/list"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Store [Authorize needed]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/store/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "Create Pet [Authorize needed]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"storeId\": 3,\r\n    \"name\": \"Arley\",\r\n    \"image\": \"https://res.cloudinary.com/petrescue/image/upload/b_auto:predominant,f_auto,c_pad,h_638,w_638/v1663463594/lwkee54kaqrbin10djvw.jpg\",\r\n    \"price\": 1000,\r\n    \"age\": 2,\r\n    \"ageGroup\": \"CHILD\",\r\n    \"breed\": \"DOG_POODLE\",\r\n    \"petType\": \"DOG\",\r\n    \"coat\": \"LONG\",\r\n    \"gender\": \"MALE\",\r\n    \"size\": \"SMALL\",\r\n    \"status\": \"STORE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/pet"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/pet/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pet [Authorize needed]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"storeId\": 3,\r\n    \"name\": \"Arley\",\r\n    \"image\": \"https://res.cloudinary.com/petrescue/image/upload/b_auto:predominant,f_auto,c_pad,h_638,w_638/v1663463594/lwkee54kaqrbin10djvw.jpg\",\r\n    \"price\": 1000,\r\n    \"age\": 3,\r\n    \"ageGroup\": \"CHILD\",\r\n    \"breed\": \"DOG_POODLE\",\r\n    \"petType\": \"DOG\",\r\n    \"coat\": \"LONG\",\r\n    \"gender\": \"MALE\",\r\n    \"size\": \"SMALL\",\r\n    \"status\": \"STORE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/pet/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Pet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"storeId\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/pet/search"
+					},
+					"response": []
+				},
+				{
+					"name": "List Pet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/pet/list"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pet [Authorize needed]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/pet/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User [Authorize needed]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/user/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User [Authorize needed]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"givenName\": \"Kito\",\r\n    \"nickname\": \"Ant\",\r\n    \"picture\": \"https://res.cloudinary.com/petrescue/image/upload/b_auto:predominant,f_auto,c_pad,h_638,w_638/v1663463594/lwkee54kaqrbin10djvw.jpg\",\r\n    \"name\": \"Kit Wong\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/user/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Search User [Authorize needed]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sub\": \"Google\",\r\n    \"givenName\": \"Kito\",\r\n    \"nickname\": \"Ant\",\r\n    \"picture\": \"https://res.cloudinary.com/petrescue/image/upload/b_auto:predominant,f_auto,c_pad,h_638,w_638/v1663463594/lwkee54kaqrbin10djvw.jpg\",\r\n    \"name\": \"Kit Wong\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}{{API_VERSION}}/user/search"
+					},
+					"response": []
+				},
+				{
+					"name": "List User [Authorize needed]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/user/list"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User [Authorize needed]",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "zh-TW",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}{{API_VERSION}}/user/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth0",
+			"item": [
+				{
+					"name": "Get User Info from Auth0",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-ig-automation.jp.auth0.com/userinfo"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkdsZTNqUF9uMm9VbXgxbVpRamdaUiJ9.eyJpc3MiOiJodHRwczovL2Rldi1pZy1hdXRvbWF0aW9uLmpwLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwNzQ0ODExNzI4OTE2NjY1ODI5OCIsImF1ZCI6WyJodHRwczovLzEyNy4wLjAuMTo4MDgwL2FwaS92MS8iLCJodHRwczovL2Rldi1pZy1hdXRvbWF0aW9uLmpwLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2NzA0NDMwMzgsImV4cCI6MTY3MDUyOTQzOCwiYXpwIjoiVEF2OGU3S2ticXVLWVM5akwwck9McDlaUE9SN1k2dDkiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIHJlYWQ6dXNlcnMifQ.AYG136ZI1x-58sdUl-o0y2rLbz2TWAE30ILuMd8yuFvhs7ldUuTu3HN_2b92n0GEUj0vlM5oBf6OSsyD2gemN8Io_NVnpDkniJgkRWWdRUBOxtJrPiIevF04FaXAH13BhpUJ_OyXsB-L7msOMe2_sY6az2Fo0Cl_YubEzzJpDZfol91bTeqRl3bXZ58BMqE-pKL5CEQZMMRniTH6RtHwJhriyi9b3QBNvustAEkRmg03x3mLn8nGIS1HK4Ab5ValsJSgIet86X2Y7bPgAfW16-RMrH89ZqfTqajYBUPIWy97Ru70X0ORdm0XUQ1R0zKThoH1WEaASSulxrF0XC04_Q"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://127.0.0.1:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "API_VERSION",
+			"value": "/v1",
+			"type": "string"
+		}
+	]
+}
