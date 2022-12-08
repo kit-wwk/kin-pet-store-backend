@@ -29,22 +29,22 @@ public class Store extends BaseEntity {
     @BatchSize(size = 50)
     private List<LocalizedStore> localizedStore;
 
-    @Column(length = 20)
+    @Column(name = "phone_number", length = 20)
     @NotNull
     @NotEmpty
     private String phoneNumber;
 
-    @Column(length = 1000)
+    @Column(name = "facebook_url", length = 1000)
     @NotNull
     @NotEmpty
     private String facebookUrl;
 
-    @Column(length = 1000)
+    @Column(name = "instagram_url", length = 1000)
     @NotNull
     @NotEmpty
     private String instagramUrl;
 
-    @Column(length = 1000)
+    @Column(name = "web_url", length = 1000)
     @NotNull
     @NotEmpty
     private String webUrl;

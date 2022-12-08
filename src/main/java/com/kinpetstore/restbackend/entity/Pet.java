@@ -38,12 +38,14 @@ public class Pet extends BaseEntity {
     private Integer age;
 
     @NotNull
+    @Column(name = "age_group")
     private AgeGroup ageGroup;
 
     @NotNull
     private Breed breed;
 
     @NotNull
+    @Column(name = "pet_type")
     private PetType petType;
 
     @NotNull

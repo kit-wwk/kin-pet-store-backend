@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:6033/kin_pet_store_db?allowPublicRetrieval=true&useSSL=false
+    url: jdbc:mysql://localhost:6033/kin_pet_store_db?allowPublicRetrieval=true&useSSL=false&sql_mode=
     username: KIN_PET_STORE_USER
     password: KIN_PET_STORE_PASSWORD
   jpa:

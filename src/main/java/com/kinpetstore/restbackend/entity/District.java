@@ -26,7 +26,7 @@ public class District extends BaseEntity {
 
     @NotNull
     @NotEmpty
-    @Column(length = 20, unique = true)
+    @Column(name = "district_code", length = 20, unique = true)
     private String districtCode;
 
     //Custom setter instead of hibernate setter function

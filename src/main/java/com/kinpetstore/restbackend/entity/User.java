@@ -21,7 +21,7 @@ public class User extends BaseEntity {
     @NotEmpty
     private String sub;
 
-    @Column(length = 1000)
+    @Column(name = "given_name", length = 1000)
     @NotNull
     @NotEmpty
     private String givenName;
